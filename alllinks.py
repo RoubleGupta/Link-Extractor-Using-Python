@@ -4,6 +4,7 @@ import urllib.request #importing the request library
 Creating a function to read the url using request library.
 Also decoding it to be easily useable.
 """
+#get_page function is used for extracting page content 
 def get_page(url):
     try:
         with urllib.request.urlopen(url) as response:
@@ -27,6 +28,7 @@ def get_next_target(s):
 """
 Creating a function to print the extracted links from the requested web page.
 """
+#Main function is called here 
 def print_all_links(page):
     while True:
         url,endpos = get_next_target(page)
@@ -35,6 +37,6 @@ def print_all_links(page):
             page=page[endpos:]
         else:
             break
-
+#Enter any website link here to simply extract all links 
 print_all_links(get_page('https://en.wikipedia.org/wiki/Abraham_Lincoln'))
 
